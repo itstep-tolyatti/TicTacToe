@@ -15,14 +15,13 @@ int main() {
     cout << "+++ Крестики-Нолики +++" << endl;
     cout << endl;
 
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
-            cout << "|" << board[i][j] << "|";
-        }
-        cout << endl;
-    }
-
     do {
+        for (int i = 0; i < SIZE; ++i) {
+            for (int j = 0; j < SIZE; ++j) {
+                cout << "|" << board[i][j] << "|";
+            }
+            cout << endl;
+        }
         cout << "Ход Крестика" << endl;
         do {
             do {
@@ -56,7 +55,16 @@ int main() {
                 }
             }
         }
+        if (draw) {
+            break;
+        }
 
+        for (int i = 0; i < SIZE; ++i) {
+            for (int j = 0; j < SIZE; ++j) {
+                cout << "|" << board[i][j] << "|";
+            }
+            cout << endl;
+        }
         cout << "Ход Нолик" << endl;
         do {
             do {
@@ -88,6 +96,9 @@ int main() {
                     draw = false;
                 }
             }
+        }
+        if (draw) {
+            break;
         }
     } while (true);
 
